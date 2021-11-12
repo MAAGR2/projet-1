@@ -195,3 +195,24 @@ def afficher_damier_ascii(etat_j1, etat_j2):
 
 
     
+    
+
+    print('       . | . : | : : | : : | : . | .     ')
+    print('         '+ ligne_1[0] +'   . '+ ligne_1[1] +' .   '+ ligne_1[2] +'   . '+ ligne_1[3] +' .   '+ ligne_1[4] +'       ')
+    print('  ...    '+ ligne_2[0] +'     '+ ligne_2[1] +'     '+ ligne_2[2] +'     '+ ligne_2[3] +'     '+ ligne_2[4] +'      .')
+    print('1 â”€'+ depart[0] +'â”€'+ ligne_3[0] +'â”€'+ ligne_3[1] +'â”€'+ ligne_3[2] + retournement[0] +'â”€')
+    print('  ...    '+ ligne_4[0] +'     '+ ligne_4[1] +'     '+ ligne_4[2] +'     '+ ligne_4[3] +'     '+ ligne_4[4] +'      .')
+    print('  .      '+ ligne_5[0] +'     '+ ligne_5[1] +'     '+ ligne_5[2] +'     '+ ligne_5[3] +'     '+ ligne_5[4] +'    ...')
+    print('2 â”€'+ depart[1] +'â”€'+ ligne_6[0] +'â”€'+ ligne_6[1] +'â”€'+ ligne_6[2] + retournement[1] +'â”€')
+    print('  .      '+ ligne_7[0] +'     '+ ligne_7[1] +'     '+ ligne_7[2] +'     '+ ligne_7[3] +'     '+ ligne_7[4] +'    ...')
+    print('  ..     '+ ligne_8[0] +'     '+ ligne_8[1] +'     '+ ligne_8[2] +'     '+ ligne_8[3] +'     '+ ligne_8[4] +'     ..')
+    print('3 â”€'+ depart[2] +'â”€'+ ligne_9[0] +'â”€'+ ligne_9[1] +'â”€'+ ligne_9[2] + retournement[2] +'â”€')
+    print('  ..     '+ ligne_10[0] +'     '+ ligne_10[1] +'     '+ ligne_10[2] +'     '+ ligne_10[3] +'     '+ ligne_10[4] +'     ..')
+    print('  .      '+ ligne_11[0] +'     '+ ligne_11[1] +'     '+ ligne_11[2] +'     '+ ligne_11[3] +'     '+ ligne_11[4] +'    ...')
+    print('4 â”€'+ depart[3] +'â”€'+ ligne_12[0] +'â”€'+ ligne_12[1] +'â”€'+ ligne_12[2] + retournement[3] +'â”€')
+    print('  .      '+ ligne_13[0] +'     '+ ligne_13[1] +'     '+ ligne_13[2] +'     '+ ligne_13[3] +'     '+ ligne_13[4] +'    ...')
+    print('  ...    '+ ligne_14[0] +'     '+ ligne_14[1] +'     '+ ligne_14[2] +'     '+ ligne_14[3] +'     '+ ligne_14[4] +'      .')
+    print('5 â”€'+ depart[4] +'â”€'+ ligne_15[0] +'â”€'+ ligne_15[1] +'â”€'+ ligne_15[2] + retournement[4] +'â”€')
+    print('  ...    '+ ligne_16[0] +'     '+ ligne_16[1] +'     '+ ligne_16[2] +'     '+ ligne_16[3] +'     '+ ligne_16[4] +'      .')
+    print('       . '+ ligne_17[0] +' .   '+ ligne_17[1] +'     '+ ligne_17[2] +'     '+ligne_17[3]+'   . '+ ligne_17[4] +' .')
+    print('       : | : . | . : | : . | . : | :')
