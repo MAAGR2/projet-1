@@ -216,3 +216,10 @@ def afficher_damier_ascii(etat_j1, etat_j2):
     print('  ...    '+ ligne_16[0] +'     '+ ligne_16[1] +'     '+ ligne_16[2] +'     '+ ligne_16[3] +'     '+ ligne_16[4] +'      .')
     print('       . '+ ligne_17[0] +' .   '+ ligne_17[1] +'     '+ ligne_17[2] +'     '+ligne_17[3]+'   . '+ ligne_17[4] +' .')
     print('       : | : . | . : | : . | . : | :')
+    
+    def afficher_parties():
+        rep = httpx.get(URL)
+    parties = rep.json()
+    for partie in range (20):
+
+        print(str(partie + 1) + ' : '+ parties['parties'][partie]['date'] +', '+ parties['parties'][partie]['joueurs'][0] +' vs '+ parties['parties'][partie]['joueurs'][1])
