@@ -32,3 +32,20 @@ if __name__ == '__main__':
         joueur_2 = DEBUTER[2][1]['nom']
         prochain_joueur = joueur_1
         etat_finale = [12, 12, 12, 12, 12]
+        
+        while etat_j1 != etat_finale and etat_j2 != etat_finale:
+            squadro.afficher_damier_ascii(etat_j1, etat_j2)
+            print(prochain_joueur + '! Merci de spÃ©cifier votre coup. choisissez parmi 1, 2, 3, 4, 5:')
+            pion = int(input())
+            
+            if pion not in [1, 2, 3, 4, 5]:
+                print('valeur invalide')
+            else:
+                coup = api.jouer_coup(id_partie,prochain_joueur, pion)
+               
+                
+'''
+etat_j1 = coup[2][0]['pions']
+etat_j2 = coup[2][1]['pions']
+prochain_joueur = joueur_2
+
