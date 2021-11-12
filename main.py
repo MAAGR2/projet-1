@@ -48,4 +48,11 @@ if __name__ == '__main__':
 etat_j1 = coup[2][0]['pions']
 etat_j2 = coup[2][1]['pions']
 prochain_joueur = joueur_2
+'''
+
+            
+        #rÃ©cupÃ©rer_partie()
+        iduls = ['Mokhtar']
+        api.lister_parties(iduls)
+
 
