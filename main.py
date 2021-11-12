@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
     else:
         
-        DEBUTER = api.dÃ©buter_partie(iduls)
+        DEBUTER = api.débuter_partie(iduls)
         #print(DEBUTER[2][0]['pions'])
         #print(DEBUTER[2][1]['pions'])
         
