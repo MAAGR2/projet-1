@@ -192,11 +192,6 @@ def afficher_damier_ascii(etat_j1, etat_j2):
         if etat_j2[i] == 6: ligne_17[i] = verticale2
         else: ligne_17[i] = verticale3
 
-
-
-    
-    
-
     print('       . | . : | : : | : : | : . | .     ')
     print('         '+ ligne_1[0] +'   . '+ ligne_1[1] +' .   '+ ligne_1[2] +'   . '+ ligne_1[3] +' .   '+ ligne_1[4] +'       ')
     print('  ...    '+ ligne_2[0] +'     '+ ligne_2[1] +'     '+ ligne_2[2] +'     '+ ligne_2[3] +'     '+ ligne_2[4] +'      .')
