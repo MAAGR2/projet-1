@@ -1,8 +1,8 @@
 import argparse
 import httpx
 
-
 URL = 'http://www.ulaval.ca/api/parties'
+
 
 def analyser_la_ligne_de_commande():
     '''Analyseur de commande.'''

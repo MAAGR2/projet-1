@@ -1,7 +1,6 @@
 import argparse
 import squadro
 import api
-
 if __name__ == '__main__':
     COMMANDE = squadro.analyser_la_ligne_de_commande()
     iduls = COMMANDE.IDUL
@@ -21,7 +20,6 @@ if __name__ == '__main__':
             squadro.afficher_le_plateau_de_jeu(etat_j1, etat_j2)
             print(prochain_joueur + '! Merci de spécifier votre coup. choisissez parmi 1, 2, 3, 4, 5:')
             pion = int(input())
-            
             if pion not in [1, 2, 3, 4, 5]:
                 print('valeur invalide')
             else:
