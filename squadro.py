@@ -97,42 +97,42 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
     ligne_17 = ['c1' ,'c2','c3','c4' ,'c5']
 
 
-    for i in range(5): 
-        if etat_j2[i] == 0: 
+    for i in range(5):
+        if etat_j2[i] == 0:
             ligne_1[i] = verticale2
         elif etat_j2[i] == 12: 
             ligne_1[i] = verticale4
-        else: 
+        else:
             ligne_1[i] = verticale3
     
-    for i in range(5): 
-        if etat_j2[i] == 12: 
+    for i in range(5):
+        if etat_j2[i] == 12:
             ligne_2[i] = verticale2
         elif etat_j2[i] == 0 or etat_j2[i] == 11: 
             ligne_2[i] = verticale4
-        else: 
+        else:
             ligne_2[i] = verticale3
-    for i in range(3): 
-        if etat_j1[0] == i+2: 
+    for i in range(3):
+        if etat_j1[0] == i+2:
             ligne_3[i] = droite
-        elif etat_j1[0] == 10-i: 
+        elif etat_j1[0] == 10-i:
             ligne_3[i] = gauche
-        elif etat_j2[i+1] == 1 or etat_j2[i+1] == 11: 
+        elif etat_j2[i+1] == 1 or etat_j2[i+1] == 11:
             ligne_3[i] = verticale
-        else: 
+        else:
             ligne_3[i] = verticale6
-    for i in range(5): 
-        if etat_j2[i] == 1: 
+    for i in range(5):
+        if etat_j2[i] == 1:
             ligne_4[i] = verticale4
-        else: 
+        else:
             ligne_4[i] = verticale3 
-    for i in range(5): 
+    for i in range(5):
         if etat_j2[i] == 10:
             ligne_5[i] = verticale4
         else:
             ligne_5[i] = verticale3     
-    for i in range(3): 
-        if etat_j1[1] == i+2: 
+    for i in range(3):
+        if etat_j1[1] == i+2:
             ligne_6[i] = droite
         elif etat_j1[1] == 10-i:
             ligne_6[i] = gauche
@@ -145,7 +145,7 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
             ligne_7[i] = verticale4
         else:
             ligne_7[i] = verticale3
-    for i in range(5): 
+    for i in range(5):
         if etat_j2[i] == 9:
             ligne_8[i] = verticale4
         else:
@@ -153,59 +153,59 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
     for i in range(3): 
         if etat_j1[2] == i+2:
             ligne_9[i] = droite
-        elif etat_j1[2] == 10-i: 
+        elif etat_j1[2] == 10-i:
             ligne_9[i] = gauche
-        elif etat_j2[i+1] == 3 or etat_j2[i+1] == 9: 
+        elif etat_j2[i+1] == 3 or etat_j2[i+1] == 9:
             ligne_9[i] = verticale
-        else: 
+        else:
             ligne_9[i] = verticale6
-    for i in range(5): 
-        if etat_j2[i] == 3: 
+    for i in range(5):
+        if etat_j2[i] == 3:
             ligne_10[i] = verticale4
         else: 
             ligne_10[i] = verticale3
     for i in range(5):
-        if etat_j2[i] == 8: 
+        if etat_j2[i] == 8:
             ligne_11[i] = verticale4
-        else: 
+        else:
             ligne_11[i] = verticale3
-    for i in range(3): 
-        if etat_j1[3] == i+2: 
+    for i in range(3):
+        if etat_j1[3] == i+2:
             ligne_12[i] = droite
-        elif etat_j1[3] == 10-i: 
+        elif etat_j1[3] == 10-i:
             ligne_12[i] = gauche
-        elif etat_j2[i+1] == 4 or etat_j2[i+1] == 8: 
+        elif etat_j2[i+1] == 4 or etat_j2[i+1] == 8:
             ligne_12[i] = verticale
-        else: 
+        else:
             ligne_12[i] = verticale6
-    for i in range(5): 
-        if etat_j2[i] == 4: 
+    for i in range(5):
+        if etat_j2[i] == 4:
             ligne_13[i] = verticale4
         else: 
             ligne_13[i] = verticale3
-    for i in range(5): 
-        if etat_j2[i] == 7: 
+    for i in range(5):
+        if etat_j2[i] == 7:
             ligne_14[i] = verticale4
         else: 
             ligne_14[i] = verticale3
-    for i in range(3): 
-        if etat_j1[4] == i+2: 
+    for i in range(3):
+        if etat_j1[4] == i+2:
             ligne_15[i] = droite
-        elif etat_j1[4] == 10-i: 
+        elif etat_j1[4] == 10-i:
             ligne_15[i] = gauche
-        elif etat_j2[i+1] == 5 or etat_j2[i+1] == 7: 
+        elif etat_j2[i+1] == 5 or etat_j2[i+1] == 7:
             ligne_15[i] = verticale
-        else: 
+        else:
             ligne_15[i] = verticale6
-    for i in range(5): 
+    for i in range(5):
         if etat_j2[i] == 5 or etat_j2[i] == 6:
             ligne_16[i] = verticale4
-        else: 
+        else:
             ligne_16[i] = verticale3
-    for i in range(5): 
+    for i in range(5):
         if etat_j2[i] == 6:
             ligne_17[i] = verticale2
-        else: 
+        else:
             ligne_17[i] = verticale3
         
     print('       . | . : | : : | : : | : . | .     ')
