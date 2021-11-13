@@ -1,5 +1,5 @@
-import httpx
 import random
+import httpx
 
 URL = 'http://www.ulaval.ca/api/'
 URL2 = 'http://www.ulaval.ca/api/partie'

@@ -1,6 +1,6 @@
-import api
-import squadro
 import argparse
+import squadro
+import api
 
 
 
