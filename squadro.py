@@ -1,24 +1,31 @@
 import argparse
 import httpx
 
+
 URL = 'http://www.ulaval.ca/api/parties'
 
 def analyser_la_ligne_de_commande():
-    '''Analyseur de la ligne de commande.'''
-    parser = argparse.ArgumentParser(description = 'Squadro - Phase 3')
+    '''Analyseur de commande.'''
+    parser = argparse.ArgumentParser(description = 'Squadro - Phase 1')
 
     parser.add_argument("IDUL", nargs='+', help = "IDUL du ou des joueur(s)")
 
-    parser.add_argument("-a", '--automatique', action='store_true',
-                        help = "Activer le mode automatique.")
-    
-    parser.add_argument("-l", '--local', action='store_true',
-                        help="Jouer localement.")
-    
     parser.add_argument("-p", '--parties', action='store_true',
-                        help = "Lister les 20 dernières parties.")
-
+                        help = "Lister les 20 dernières parties")
+    '''
+    -a 
+    parser.add_argument("a", action='store_true',
+                        help = "Jouer en mode automatique avec le serveur.")
+     -x
+     parser.add_argument("-x", action='store_true',
+                        help = "Jouer en mode manuel contre le serveur avec un affichage graphique.")
+    -ax
+    parser.add_argument("-ax", action='store_true',
+                        help="Jouer en mode automatique contre le serveur avec un affichage graphique.")
+    '''
     return parser.parse_args()
+
+
 
 
 def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
@@ -38,7 +45,6 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
     depart_5 = '──────█──'
     depart_6 = '─○ □□─█──'
     depart_7 = '────○ □□─'
-    depart_8 = '────□□ ○─'
 
     retournement_1 = '───┼─○ □□─'
     retournement_2 = '───┼──────'
@@ -51,8 +57,6 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
             if etat_j2[0] == i+1 or etat_j2[0] == 12-i:
                 depart[i] = depart_4
             else: depart[i] = depart_1
-        elif  etat_j1[i] == 1:
-            depart[i] = depart_8
         elif  etat_j1[i] == 12:
             if etat_j2[0] == i+1 or etat_j2[0] == 12-i:
                 depart[i] = depart_6
@@ -95,112 +99,105 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
 
 
     for i in range(5): 
-        if etat_j2[i] == 0: 
-            ligne_1[i] = verticale2
-        elif etat_j2[i] == 12: 
-            ligne_1[i] = verticale4
-        else: 
-            ligne_1[i] = verticale3  
+
+        if etat_j2[i] == 0: ligne_1[i] = verticale2
+        elif etat_j2[i] == 12: ligne_1[i] = verticale4
+        else: ligne_1[i] = verticale3
+    
     for i in range(5): 
-        if etat_j2[i] == 12: 
-            ligne_2[i] = verticale2
-        elif etat_j2[i] == 0 or etat_j2[i] == 11: 
-            ligne_2[i] = verticale4
-        else: 
-            ligne_2[i] = verticale3
+
+        if etat_j2[i] == 12: ligne_2[i] = verticale2
+        elif etat_j2[i] == 0 or etat_j2[i] == 11: ligne_2[i] = verticale4
+        else: ligne_2[i] = verticale3
+
     for i in range(3): 
-        if etat_j1[0] == i+2: 
-            ligne_3[i] = droite
-        elif etat_j1[0] == 10-i: 
-            ligne_3[i] = gauche
-        elif etat_j2[i+1] == 1 or etat_j2[i+1] == 11: 
-            ligne_3[i] = verticale
-        else: 
-            ligne_3[i] = verticale6
+
+        if etat_j1[0] == i+2: ligne_3[i] = droite
+        elif etat_j1[0] == 10-i: ligne_3[i] = gauche
+        elif etat_j2[i+1] == 1 or etat_j2[i+1] == 11: ligne_3[i] = verticale
+        else: ligne_3[i] = verticale6
+
     for i in range(5): 
-        if etat_j2[i] == 1: 
-            ligne_4[i] = verticale4
-        else: 
-            ligne_4[i] = verticale3 
+
+        if etat_j2[i] == 1: ligne_4[i] = verticale4
+        else: ligne_4[i] = verticale3 
+
     for i in range(5): 
+
         if etat_j2[i] == 10: ligne_5[i] = verticale4
-        else: ligne_5[i] = verticale3      
-    for i in range(3):   
-        if etat_j1[1] == i+2: 
-            ligne_6[i] = droite
-        elif etat_j1[1] == 10-i: 
-            ligne_6[i] = gauche
-        elif etat_j2[i+1] == 2 or etat_j2[i+1] == 10: 
-            ligne_6[i] = verticale
-        else: 
-            ligne_6[i] = verticale6
-    for i in range(5): 
-        if etat_j2[i] == 2: 
-            ligne_7[i] = verticale4
-        else: 
-            ligne_7[i] = verticale3
-    for i in range(5): 
-        if etat_j2[i] == 9: 
-            ligne_8[i] = verticale4
-        else: 
-            ligne_8[i] = verticale3
-    for i in range(3):       
-        if etat_j1[2] == i+2: 
-            ligne_9[i] = droite
-        elif etat_j1[2] == 10-i: 
-            ligne_9[i] = gauche
-        elif etat_j2[i+1] == 3 or etat_j2[i+1] == 9: 
-            ligne_9[i] = verticale
-        else: 
-            ligne_9[i] = verticale6
-    for i in range(5): 
-        if etat_j2[i] == 3: 
-            ligne_10[i] = verticale4
-        else:
-            ligne_10[i] = verticale3
-    for i in range(5): 
-        if etat_j2[i] == 8: 
-            ligne_11[i] = verticale4
-        else: 
-            ligne_11[i] = verticale3
+        else: ligne_5[i] = verticale3   
+        
     for i in range(3): 
-        if etat_j1[3] == i+2: 
-            ligne_12[i] = droite
-        elif etat_j1[3] == 10-i: 
-            ligne_12[i] = gauche
-        elif etat_j2[i+1] == 4 or etat_j2[i+1] == 8: 
-            ligne_12[i] = verticale
-        else: 
-            ligne_12[i] = verticale6
+
+        if etat_j1[1] == i+2: ligne_6[i] = droite
+        elif etat_j1[1] == 10-i: ligne_6[i] = gauche
+        elif etat_j2[i+1] == 2 or etat_j2[i+1] == 10: ligne_6[i] = verticale
+        else: ligne_6[i] = verticale6
+
     for i in range(5): 
-        if etat_j2[i] == 4: 
-            ligne_13[i] = verticale4
-        else: 
-            ligne_13[i] = verticale3
+
+        if etat_j2[i] == 2: ligne_7[i] = verticale4
+        else: ligne_7[i] = verticale3
+
     for i in range(5): 
-        if etat_j2[i] == 7: 
-            ligne_14[i] = verticale4
-        else: 
-            ligne_14[i] = verticale3
+
+        if etat_j2[i] == 9: ligne_8[i] = verticale4
+        else: ligne_8[i] = verticale3
+
     for i in range(3): 
-        if etat_j1[4] == i+2: 
-            ligne_15[i] = droite
-        elif etat_j1[4] == 10-i: 
-            ligne_15[i] = gauche
-        elif etat_j2[i+1] == 5 or etat_j2[i+1] == 7: 
-            ligne_15[i] = verticale
-        else: 
-            ligne_15[i] = verticale6
+
+        if etat_j1[2] == i+2: ligne_9[i] = droite
+        elif etat_j1[2] == 10-i: ligne_9[i] = gauche
+        elif etat_j2[i+1] == 3 or etat_j2[i+1] == 9: ligne_9[i] = verticale
+        else: ligne_9[i] = verticale6
+
     for i in range(5): 
-        if etat_j2[i] == 5 or etat_j2[i] == 6:
-            ligne_16[i] = verticale4
-        else: 
-            ligne_16[i] = verticale3
+
+        if etat_j2[i] == 3: ligne_10[i] = verticale4
+        else: ligne_10[i] = verticale3
+
     for i in range(5): 
-        if etat_j2[i] == 6: 
-            ligne_17[i] = verticale2
-        else: 
-            ligne_17[i] = verticale3
+
+        if etat_j2[i] == 8: ligne_11[i] = verticale4
+        else: ligne_11[i] = verticale3
+
+    for i in range(3): 
+
+        if etat_j1[3] == i+2: ligne_12[i] = droite
+        elif etat_j1[3] == 10-i: ligne_12[i] = gauche
+        elif etat_j2[i+1] == 4 or etat_j2[i+1] == 8: ligne_12[i] = verticale
+        else: ligne_12[i] = verticale6
+
+    for i in range(5): 
+
+        if etat_j2[i] == 4: ligne_13[i] = verticale4
+        else: ligne_13[i] = verticale3
+
+    for i in range(5): 
+
+        if etat_j2[i] == 7: ligne_14[i] = verticale4
+        else: ligne_14[i] = verticale3
+
+    for i in range(3): 
+
+        if etat_j1[4] == i+2: ligne_15[i] = droite
+        elif etat_j1[4] == 10-i: ligne_15[i] = gauche
+        elif etat_j2[i+1] == 5 or etat_j2[i+1] == 7: ligne_15[i] = verticale
+        else: ligne_15[i] = verticale6
+
+    for i in range(5): 
+
+        if etat_j2[i] == 5 or etat_j2[i] == 6: ligne_16[i] = verticale4
+        else: ligne_16[i] = verticale3
+
+    for i in range(5): 
+
+        if etat_j2[i] == 6: ligne_17[i] = verticale2
+        else: ligne_17[i] = verticale3
+
+
+
+    
 
     print('       . | . : | : : | : : | : . | .     ')
     print('         '+ ligne_1[0] +'   . '+ ligne_1[1] +' .   '+ ligne_1[2] +'   . '+ ligne_1[3] +' .   '+ ligne_1[4] +'       ')
@@ -223,9 +220,11 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
     print('       : | : . | . : | : . | . : | :')
 
 
+    
+
 def formatter_les_parties():
-    rep = httpx.get(URL)
+    rep = requests.get(URL)
     parties = rep.json()
     for partie in range (20):
 
-        print(str(partie + 1) + ' : '+ parties['parties'][partie]['date'] +', '+ parties['parties'][partie]['joueurs'][0] +' vs '+ parties['parties'][partie]['joueurs'][1])            
+        print(str(partie + 1) + ' : '+ parties['parties'][partie]['date'] +', '+ parties['parties'][partie]['joueurs'][0] +' vs '+ parties['parties'][partie]['joueurs'][1])           
