@@ -60,7 +60,7 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
             if etat_j2[0] == i+1 or etat_j2[0] == 12-i:
                 depart[i] = depart_6
             else:
-                depart[i] = depart_3    
+                depart[i] = depart_3  
         elif  etat_j1[i] == 11:
             depart[i] = depart_7
         else:
@@ -103,15 +103,14 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
     for i in range(5):
         if etat_j2[i] == 0:
             ligne_1[i] = verticale2
-        elif etat_j2[i] == 12: 
+        elif etat_j2[i] == 12:
             ligne_1[i] = verticale4
         else:
             ligne_1[i] = verticale3
-    
     for i in range(5):
         if etat_j2[i] == 12:
             ligne_2[i] = verticale2
-        elif etat_j2[i] == 0 or etat_j2[i] == 11: 
+        elif etat_j2[i] == 0 or etat_j2[i] == 11:
             ligne_2[i] = verticale4
         else:
             ligne_2[i] = verticale3
@@ -128,12 +127,12 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
         if etat_j2[i] == 1:
             ligne_4[i] = verticale4
         else:
-            ligne_4[i] = verticale3 
+            ligne_4[i] = verticale3
     for i in range(5):
         if etat_j2[i] == 10:
             ligne_5[i] = verticale4
         else:
-            ligne_5[i] = verticale3     
+            ligne_5[i] = verticale3
     for i in range(3):
         if etat_j1[1] == i+2:
             ligne_6[i] = droite
@@ -153,7 +152,7 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
             ligne_8[i] = verticale4
         else:
             ligne_8[i] = verticale3
-    for i in range(3): 
+    for i in range(3):
         if etat_j1[2] == i+2:
             ligne_9[i] = droite
         elif etat_j1[2] == 10-i:
@@ -165,7 +164,7 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
     for i in range(5):
         if etat_j2[i] == 3:
             ligne_10[i] = verticale4
-        else: 
+        else:
             ligne_10[i] = verticale3
     for i in range(5):
         if etat_j2[i] == 8:
@@ -184,12 +183,12 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
     for i in range(5):
         if etat_j2[i] == 4:
             ligne_13[i] = verticale4
-        else: 
+        else:
             ligne_13[i] = verticale3
     for i in range(5):
         if etat_j2[i] == 7:
             ligne_14[i] = verticale4
-        else: 
+        else:
             ligne_14[i] = verticale3
     for i in range(3):
         if etat_j1[4] == i+2:
@@ -209,8 +208,7 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
         if etat_j2[i] == 6:
             ligne_17[i] = verticale2
         else:
-            ligne_17[i] = verticale3
-                 
+            ligne_17[i] = verticale3            
     print('       . | . : | : : | : : | : . | .     ')
     print('         '+ ligne_1[0] +'   . '+ ligne_1[1] +' .   '+ ligne_1[2] +'   . '+ ligne_1[3] +' .   '+ ligne_1[4] +'       ')
     print('  ...    '+ ligne_2[0] +'     '+ ligne_2[1] +'     '+ ligne_2[2] +'     '+ ligne_2[3] +'     '+ ligne_2[4] +'      .')
