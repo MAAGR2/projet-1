@@ -8,8 +8,6 @@ URL3 = 'http://www.ulaval.ca/api/jouer'
 
 
 
-
-
 def lister_les_parties(iduls):
 
     rep = httpx.get(f'{URL}parties/', params={'iduls': iduls})
@@ -32,16 +30,6 @@ def lister_les_parties(iduls):
     else:
     # afficher un message d'erreur
         print(f"Le GET sur '{URL}parties/' a produit le code d'erreur {rep.status_code}.")
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -71,11 +59,6 @@ def récupérer_une_partie(id_partie):
     else:
     # afficher un message d'erreur
         print(f"Le GET sur '{URL2}' a produit le code d'erreur {rep.status_code}.")
-
-
-
-
-
 
 
 
@@ -130,11 +113,6 @@ def créer_une_partie(iduls):
 
 
 
-
-
-
-
-
 def jouer_un_coup(id_partie, idul, pion):
 
     partie = récupérer_une_partie(id_partie)
@@ -170,5 +148,3 @@ def jouer_un_coup(id_partie, idul, pion):
     #rep = requests.put(URL3, data={'id':id_partie, 'idul':idul, 'pion':pion})
     
     return (id_partie, prochain_joueur, état)
-
-
