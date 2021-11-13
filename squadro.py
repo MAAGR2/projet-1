@@ -207,7 +207,7 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
             ligne_17[i] = verticale2
         else:
             ligne_17[i] = verticale3
-        
+                 
     print('       . | . : | : : | : : | : . | .     ')
     print('         '+ ligne_1[0] +'   . '+ ligne_1[1] +' .   '+ ligne_1[2] +'   . '+ ligne_1[3] +' .   '+ ligne_1[4] +'       ')
     print('  ...    '+ ligne_2[0] +'     '+ ligne_2[1] +'     '+ ligne_2[2] +'     '+ ligne_2[3] +'     '+ ligne_2[4] +'      .')
@@ -228,10 +228,8 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
     print('       . '+ ligne_17[0] +' .   '+ ligne_17[1] +'     '+ ligne_17[2] +'     '+ligne_17[3]+'   . '+ ligne_17[4] +' .')
     print('       : | : . | . : | : . | . : | :')
 
-
 def formatter_les_parties():
     rep = httpx.get(URL)
     parties = rep.json()
     for partie in range (20):
-
-        print(str(partie + 1) + ' : '+ parties['parties'][partie]['date'] +', '+ parties['parties'][partie]['joueurs'][0] +' vs '+ parties['parties'][partie]['joueurs'][1])           
+        print(str(partie + 1) + ' : '+ parties['parties'][partie]['date'] +', '+ parties['parties'][partie]['joueurs'][0] +' vs '+ parties['parties'][partie]['joueurs'][1])
