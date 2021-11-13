@@ -26,7 +26,6 @@ def analyser_la_ligne_de_commande():
     return parser.parse_args()
 
 
-
 def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
 
     droite = '─□□ ○'
@@ -55,28 +54,33 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
         if etat_j1[i] == 0:
             if etat_j2[0] == i+1 or etat_j2[0] == 12-i:
                 depart[i] = depart_4
-            else: depart[i] = depart_1
+            else:
+                depart[i] = depart_1
         elif  etat_j1[i] == 12:
             if etat_j2[0] == i+1 or etat_j2[0] == 12-i:
                 depart[i] = depart_6
-            else: depart[i] = depart_3    
+            else:
+                depart[i] = depart_3    
         elif  etat_j1[i] == 11:
             depart[i] = depart_7
         else:
             if etat_j2[0] == i+1 or etat_j2[0] == 12-i:
                 depart[i] = depart_5
-            else: depart[i] = depart_2
+            else:
+                depart[i] = depart_2
 
     retournement = ['r1','r2','r3','r4','r5']
     for i in range(5):
         if etat_j1[i] == 6:
             if etat_j2[4] == i+1 or etat_j2[4] == 11-i:
                 retournement[i] = retournement_3
-            else : retournement[i] = retournement_1
+            else :
+                retournement[i] = retournement_1
         else:
             if etat_j2[4] == i+1 or etat_j2[4] == 11-i:
                 retournement[i] = retournement_4
-            else : retournement[i] = retournement_2
+            else :
+                retournement[i] = retournement_2
 
     ligne_1 = ['c1' ,'c2','c3','c4' ,'c5']
     ligne_2 = ['c1' ,'c2','c3','c4' ,'c5']
@@ -95,7 +99,6 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
     ligne_15 = ['c1' ,'c2','c3']
     ligne_16 = ['c1' ,'c2','c3','c4' ,'c5']
     ligne_17 = ['c1' ,'c2','c3','c4' ,'c5']
-
 
     for i in range(5):
         if etat_j2[i] == 0:
