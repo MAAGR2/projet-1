@@ -2,6 +2,9 @@ import api
 import squadro
 import argparse
 
+
+
+
 if __name__ == '__main__':
     COMMANDE = squadro.analyser_la_ligne_de_commande()
 
@@ -15,6 +18,7 @@ if __name__ == '__main__':
     # elif COMMANDE.a:
         #DEBUTER = api.débuter_partie(COMMANDE.idul)
         #JEU = squadro
+
     else:
         
         DEBUTER = api.jouer_un_coup(iduls)
@@ -37,12 +41,15 @@ if __name__ == '__main__':
             if pion not in [1, 2, 3, 4, 5]:
                 print('valeur invalide')
             else:
-                #coup = api.jouer_coup(id_partie,prochain_joueur, pion)
+                coup = api.jouer_un_coup(id_partie,prochain_joueur, pion)
                 '''
                 etat_j1 = coup[2][0]['pions']
                 etat_j2 = coup[2][1]['pions']
                 prochain_joueur = joueur_2
-'''                #récupérer_partie()
+'''
+
+            
+        #récupérer_partie()
         iduls = ['MAAGR2']
-        api.lister_parties(iduls)
+        api.lister_les_parties(iduls)
     
