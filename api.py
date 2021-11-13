@@ -53,7 +53,7 @@ def récupérer_une_partie(id_partie):
         print(f"Le GET sur '{URL2}' a produit le code d'erreur {reponse.status_code}.")
 
 
-def dcréer_une_partie(iduls, bot=None):
+def créer_une_partie(iduls, bot=None):
     #liste = lister_parties(iduls)
     #print(liste)
     id = "" + str(iduls.idul4()) + ""
