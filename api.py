@@ -6,9 +6,15 @@ URL2 = 'http://www.ulaval.ca/api/partie'
 URL3 = 'http://www.ulaval.ca/api/jouer'
 
 
+
+
+
+
 def lister_les_parties(iduls):
 
     rep = httpx.get(f'{URL}parties/', params={'iduls': iduls})
+    
+
     if rep.status_code == 200:
     # la réponse est bonne, afficher son contenu
         liste_parties = []
@@ -21,60 +27,91 @@ def lister_les_parties(iduls):
                 if parties[partie]['joueurs'][0] == iduls[1] or parties[partie]['joueurs'][1] == iduls[1] :
                     liste_parties.append(parties[partie])
         return(liste_parties)
+
         #return parties
     else:
     # afficher un message d'erreur
         print(f"Le GET sur '{URL}parties/' a produit le code d'erreur {rep.status_code}.")
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def récupérer_une_partie(id_partie):
 
-    reponse = httpx.get(URL2)
+    rep = httpx.get(URL2)
 
-    if reponse.status_code == 200:
+    if rep.status_code == 200:
     # la réponse est bonne, afficher son contenu
-        rep = reponse.text
-        print(rep)
-        try:
-            for p in rep['partie']:
-                if id_partie == p['id']:
-                    prochain_joueur = p['prochain_joueur']
-                    état = p['état']
-                    gagnant = p['gagnant']
-        except IOError as exc:
-            raise RuntimeError('Impossible de récupérer la partie') from exc
-
+        rep = rep.json()
+        prochain_joueur = rep['partie'][0]['prochain_joueur']
+        état = rep['partie'][0]['état']
+        gagnant = None
+        for i in range(20):
+            if rep['partie'][i]['id'] == id_partie :
+                prochain_joueur = rep['partie'][i]['prochain_joueur']
+                état = rep['partie'][i]['état']
+                if rep['partie'][i]['gagnant'] != None:
+                    gagnant = rep['partie'][i]['gagnant']
+                
         partie = (id_partie, prochain_joueur, état, gagnant)
 
         return partie
-        
+    
     else:
     # afficher un message d'erreur
-        print(f"Le GET sur '{URL2}' a produit le code d'erreur {reponse.status_code}.")
+        print(f"Le GET sur '{URL2}' a produit le code d'erreur {rep.status_code}.")
 
 
-def créer_une_partie(iduls, bot=None):
+
+
+
+
+
+
+def créer_une_partie(iduls):
+
     #liste = lister_parties(iduls)
+
     #print(liste)
-    id = "" + str(iduls.idul4()) + ""
-    #partie = récupérer_partie(id)
-    if bot == None:
-        rep = httpx.post(URL2, data={'iduls': iduls})
-    else:
-        rep = httpx.post(URL2, data={'iduls': iduls, 'bot': bot})
-    
+
+    id = "2021"
+
+    partie = récupérer_une_partie(id)
+
+    rep = httpx.post(URL2, data={'iduls': iduls})
     if rep.status_code == 200:
-    # la réponse est bonne, afficher son contenu   
-        prochain_joueur = iduls[0]
-
-        état = [{"nom": ""+iduls[0]+"","pions": [0, 0, 0, 0, 0]},{"nom": ""+iduls[1]+"","pions": [0, 0, 0, 0, 0]},]
-
-        gagnant = None
+    # la réponse est bonne, afficher son contenu
+        rep = rep.json()
+        if iduls[0] == rep['partie'][0]['prochain_joueur']:
+            prochain_joueur = rep['partie'][1]['prochain_joueur']
+        else:
+            prochain_joueur = rep['partie'][0]['prochain_joueur']
+        état = rep['partie'][0]['état']
+        
+        for i in range(20):
+            if rep['partie'][i]['id'] == id :
+                prochain_joueur = rep['partie'][i]['prochain_joueur']
+                état = rep['partie'][i]['état']
+                if rep['partie'][i]['gagnant'] != None:
+                    gagnant = rep['partie'][i]['gagnant']
                 
         partie = (id, prochain_joueur, état, gagnant)
 
+        
+
         return partie
-          
+    
     else:
     # afficher un message d'erreur
         print(f"Le GET sur '{URL2}' a produit le code d'erreur {rep.status_code}.")
@@ -88,13 +125,22 @@ def créer_une_partie(iduls, bot=None):
     return début_partie
     #return ('4582E', 'jowic42', [{"nom": "jowic42","pions": [0, 0, 0, 0, 0]},{"nom": "robot","pions": [0, 0, 0, 0, 0]},])
 '''
+
+
+
+
+
+
+
+
+
+
 def jouer_un_coup(id_partie, idul, pion):
 
     partie = récupérer_une_partie(id_partie)
-    print(partie)
-    '''
-    if idul == partie[2]:
-            
+
+    if idul == partie[2][0]['nom']:
+            prochain_joueur = partie[2][1]['nom']
             if pion == 1:
                 partie[2][0]['pions'][0] += 3
             elif pion == 2:
@@ -124,4 +170,5 @@ def jouer_un_coup(id_partie, idul, pion):
     #rep = requests.put(URL3, data={'id':id_partie, 'idul':idul, 'pion':pion})
     
     return (id_partie, prochain_joueur, état)
-    '''
+
+
