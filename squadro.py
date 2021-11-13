@@ -223,7 +223,7 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
     
 
 def formatter_les_parties():
-    rep = requests.get(URL)
+    rep = httpx.get(URL)
     parties = rep.json()
     for partie in range (20):
 
