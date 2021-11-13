@@ -14,8 +14,8 @@ def lister_les_parties(iduls):
         parties = parties['parties']
         print(parties)
         for partie in range (20):
-            if parties[partie]['joueurs'][0] == iduls[0] or parties[partie]['joueurs'][1] == iduls[0] :
-                if parties[partie]['joueurs'][0] == iduls[1] or parties[partie]['joueurs'][1] == iduls[1] :
+            if parties[partie]['joueurs'][0] == iduls[0] or parties[partie]['joueurs'][1] == iduls[0]:
+                if parties[partie]['joueurs'][0] == iduls[1] or parties[partie]['joueurs'][1] == iduls[1]:
                     liste_parties.append(parties[partie])
         return(liste_parties)
     else:

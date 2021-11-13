@@ -13,7 +13,7 @@ def analyser_la_ligne_de_commande():
     parser.add_argument("-p", '--parties', action='store_true',
                         help = "Lister les 20 dernières parties")
     '''
-    -a 
+    -a
     parser.add_argument("a", action='store_true',
                         help = "Jouer en mode automatique avec le serveur.")
      -x
@@ -60,7 +60,7 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
             if etat_j2[0] == i+1 or etat_j2[0] == 12-i:
                 depart[i] = depart_6
             else:
-                depart[i] = depart_3  
+                depart[i] = depart_3
         elif  etat_j1[i] == 11:
             depart[i] = depart_7
         else:
@@ -208,7 +208,7 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
         if etat_j2[i] == 6:
             ligne_17[i] = verticale2
         else:
-            ligne_17[i] = verticale3            
+            ligne_17[i] = verticale3     
     print('       . | . : | : : | : : | : . | .     ')
     print('         '+ ligne_1[0] +'   . '+ ligne_1[1] +' .   '+ ligne_1[2] +'   . '+ ligne_1[3] +' .   '+ ligne_1[4] +'       ')
     print('  ...    '+ ligne_2[0] +'     '+ ligne_2[1] +'     '+ ligne_2[2] +'     '+ ligne_2[3] +'     '+ ligne_2[4] +'      .')
