@@ -2,29 +2,13 @@ import argparse
 import squadro
 import api
 
-
-
-
 if __name__ == '__main__':
     COMMANDE = squadro.analyser_la_ligne_de_commande()
-
-    #print(COMMANDE.IDUL[0])
     iduls = COMMANDE.IDUL
     if COMMANDE.parties:
-        #print(api.lister_parties(COMMANDE.idul))
         squadro.afficher_le_plateau_de_jeu()
-    # Mofe automatique (commande : python main.py -a idul)
-    
-    # elif COMMANDE.a:
-        #DEBUTER = api.débuter_partie(COMMANDE.idul)
-        #JEU = squadro
-
     else:
-        
         DEBUTER = api.jouer_un_coup(iduls)
-        #print(DEBUTER[2][0]['pions'])
-        #print(DEBUTER[2][1]['pions'])
-        
         id_partie = DEBUTER[0]
         etat_j1 = DEBUTER[2][0]['pions']
         etat_j2 = DEBUTER[2][1]['pions']
@@ -47,9 +31,6 @@ if __name__ == '__main__':
                 etat_j2 = coup[2][1]['pions']
                 prochain_joueur = joueur_2
 '''
-
-            
-        #récupérer_partie()
         iduls = ['MAAGR2']
         api.lister_les_parties(iduls)
     
