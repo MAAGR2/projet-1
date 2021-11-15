@@ -21,7 +21,7 @@ def afficher_le_plateau_de_jeu(etat_de_jeu):
     print('■' ,etat_de_jeu[1].get("nom"))
     pion_jv = etat_de_jeu[1].get("pions")
     pion_jh = etat_de_jeu[0].get("pions")
-    plateau = ['     . | . : | : : | : : | : . | .','       ','...    '] 
+    plateau = ['     . | . : | : : | : : | : . | .','       ','...    ']
     '''ligne II'''
     if pion_jv[0] == 0:
         plateau[1] += '█    .'
@@ -32,7 +32,7 @@ def afficher_le_plateau_de_jeu(etat_de_jeu):
     else :
          plateau[1] += '|    .'
          if pion_jv[0]==11:
-            plateau[2] += '●     ' 
+            plateau[2] += '●     '
          else:
             plateau[2] += '|     '
     if pion_jv[1] == 0:
@@ -44,7 +44,7 @@ def afficher_le_plateau_de_jeu(etat_de_jeu):
     else:
         plateau[1] += '| .   '
         if pion_jv[1]==11:
-            plateau[2] += '●     ' 
+            plateau[2] += '●     '
         else:
             plateau[2] += '|     '
     if pion_jv[2] == 0:
@@ -68,9 +68,9 @@ def afficher_le_plateau_de_jeu(etat_de_jeu):
     else:
         plateau[1] += '| .   '
         if pion_jv[3]==11:
-            plateau[2] += '●     ' 
+            plateau[2] += '●     '
         else:
-            plateau[2] += '|     ' 
+            plateau[2] += '|     '
     if pion_jv[4] == 0:
         plateau[1] += '█'
         plateau[2] += '●    .'
@@ -80,10 +80,10 @@ def afficher_le_plateau_de_jeu(etat_de_jeu):
     else :
         plateau[1] +='|'
         if pion_jv[4]==11:
-            plateau[2] += '●     ' 
+            plateau[2] += '●     '
         else:
             plateau[2] += '|     '
-    '''ligne IV'''  
+    '''ligne IV'''
     plateau.append('──')
     plateau.append('...   ')
     plateau.append('.      ')
@@ -123,7 +123,7 @@ def afficher_le_plateau_de_jeu(etat_de_jeu):
             plateau[4] += ' |    '
         else:
             plateau[3] += '─┼────'
-            plateau[4] += ' |    ' 
+            plateau[4] += ' |    '
         '''ligne VI '''
         if pion_jv[i] == 10:
             plateau[5] += '●     '
@@ -163,9 +163,9 @@ def afficher_le_plateau_de_jeu(etat_de_jeu):
         else:
              plateau[8] += '|     '
     if pion_jh[1] == 6:
-        plateau[6] = '─'+plateau[6][:-3] + '○ □□──' 
+        plateau[6] = '─'+plateau[6][:-3] + '○ □□──'
     else :
-        plateau[6] += '───'   
+        plateau[6] += '───'
         '''ligne VI'''
     if pion_jh[2] == 0:
         plateau[9] +='□□ ○'
@@ -192,7 +192,6 @@ def afficher_le_plateau_de_jeu(etat_de_jeu):
         else:
             plateau[9] += '─┼────'
             plateau[10] += ' |    '
-        
         if pion_jv[i] == 8:
             plateau[11] += '●     '
         else:
@@ -251,7 +250,6 @@ def afficher_le_plateau_de_jeu(etat_de_jeu):
             plateau[15] = '─' + plateau[15]
             plateau[15] += '□□ ○──'
             if pion_jv[i] == 6 :
-            
                 plateau[16] += ' ●    '
             else:
                 plateau[16] += ' |    '
@@ -260,21 +258,19 @@ def afficher_le_plateau_de_jeu(etat_de_jeu):
             plateau[15] = '─' + plateau[15]
             plateau[15] += '○ □□───'
             if pion_jv[i] == 6 :
-            
                 plateau[16] += ' ●    '
             else:
                 plateau[16] += ' |    '
         else:
             plateau[15] += '─┼────'
             if pion_jv[i] == 6 :
-            
                 plateau[16] += ' ●    '
             else:
                 plateau[16] += ' |    '
     if pion_jh[4] == 6:
         plateau[15] = plateau[15][:-3] + '○ □□──'
     else :
-        plateau[15] += '───'    
+        plateau[15] += '───' 
     if pion_jv[0] == 6:
         plateau[17] += '█ .   '
     else :
@@ -319,11 +315,10 @@ def formatter_les_parties(liste_parties):
     for e, dictio in enumerate(liste_parties):
         joueur = dictio.get("joueurs")
         if e == 0:
-            representation.append(f'{1+e} : {dictio.get("date")}, {joueur[0]} vs {joueur[1]}\n') 
+            representation.append(f'{1+e} : {dictio.get("date")}, {joueur[0]} vs {joueur[1]}\n')
         else:
-            
             if e ==19:
-                representation.append(f'{1+e}: {dictio.get("date")}, {joueur[0]} vs {joueur[1]}') 
+                representation.append(f'{1+e}: {dictio.get("date")}, {joueur[0]} vs {joueur[1]}')
                 representation[19] += f', gagnant: {dictio.get("gagnant")}'
             else:
                  representation.append(f'{1+e}: {dictio.get("date")}, {joueur[0]} vs {joueur[1]}\n') 
