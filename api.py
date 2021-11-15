@@ -62,15 +62,6 @@ def créer_une_partie(iduls):
         return partie
     else:
         print(f"Le GET sur '{URL2}' a produit le code d'erreur {rep.status_code}.")
-'''
-    id_partie = hex(random.randint(2000,3000))
-    prochain_idul = iduls[0]
-    état_du_jeu = [{"nom": iduls[0],"pions": [0, 0, 0, 0, 0]},{"nom": iduls[1],"pions": [0, 0, 0, 0, 0]}]
-
-    début_partie = partie
-    return début_partie
-    #return ('4582E', 'jowic42', [{"nom": "jowic42","pions": [0, 0, 0, 0, 0]},{"nom": "robot","pions": [0, 0, 0, 0, 0]},])
-'''
 
 def jouer_un_coup(id_partie, idul, pion):
     partie = récupérer_une_partie(id_partie)

@@ -12,17 +12,6 @@ def analyser_la_ligne_de_commande():
 
     parser.add_argument("-p", '--parties', action='store_true',
                         help = "Lister les 20 dernières parties")
-    '''
-    -a
-    parser.add_argument("a", action='store_true',
-                        help = "Jouer en mode automatique avec le serveur.")
-     -x
-     parser.add_argument("-x", action='store_true',
-                        help = "Jouer en mode manuel contre le serveur avec un affichage graphique.")
-    -ax
-    parser.add_argument("-ax", action='store_true',
-                        help="Jouer en mode automatique contre le serveur avec un affichage graphique.")
-    '''
     return parser.parse_args()
 
 

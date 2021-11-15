@@ -24,11 +24,6 @@ if __name__ == '__main__':
                 print('valeur invalide')
             else:
                 coup = api.jouer_un_coup(id_partie,prochain_joueur, pion)
-                '''
-                etat_j1 = coup[2][0]['pions']
-                etat_j2 = coup[2][1]['pions']
-                prochain_joueur = joueur_2
-'''
         iduls = ['MAAGR2']
         api.lister_les_parties(iduls)
     
