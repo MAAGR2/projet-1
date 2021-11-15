@@ -3,20 +3,15 @@ import httpx
 
 URL = 'http://www.ulaval.ca/api/parties'
 
-
 def analyser_la_ligne_de_commande():
     '''Analyseur de commande.'''
     parser = argparse.ArgumentParser(description = 'Squadro - Phase 1')
-
     parser.add_argument("IDUL", nargs='+', help = "IDUL du ou des joueur(s)")
-
     parser.add_argument("-p", '--parties', action='store_true',
                         help = "Lister les 20 dernières parties")
     return parser.parse_args()
 
-
 def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
-
     droite = '─□□ ○'
     gauche = '○ □□─'
     verticale = '──█──'
@@ -24,7 +19,6 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
     verticale3 = '|'
     verticale4 = '●'
     verticale6 = '──┼──'
-
     depart_1 = '─□□ ○─┼──'
     depart_2 = '──────┼──'
     depart_3 = '─○ □□─┼──'
@@ -32,12 +26,10 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
     depart_5 = '──────█──'
     depart_6 = '─○ □□─█──'
     depart_7 = '────○ □□─'
-
     retournement_1 = '───┼─○ □□─'
     retournement_2 = '───┼──────'
     retournement_3 = '───█─○ □□─'
     retournement_4 = '───█──────'
-
     depart = ['d1','d2','d3','d4','d5']
     for i in range(5):
         if etat_j1[i] == 0:
@@ -57,7 +49,6 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
                 depart[i] = depart_5
             else:
                 depart[i] = depart_2
-
     retournement = ['r1','r2','r3','r4','r5']
     for i in range(5):
         if etat_j1[i] == 6:
@@ -70,7 +61,6 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
                 retournement[i] = retournement_4
             else :
                 retournement[i] = retournement_2
-
     ligne_1 = ['c1' ,'c2','c3','c4' ,'c5']
     ligne_2 = ['c1' ,'c2','c3','c4' ,'c5']
     ligne_3 = ['c1' ,'c2','c3']
@@ -88,7 +78,6 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
     ligne_15 = ['c1' ,'c2','c3']
     ligne_16 = ['c1' ,'c2','c3','c4' ,'c5']
     ligne_17 = ['c1' ,'c2','c3','c4' ,'c5']
-
     for i in range(5):
         if etat_j2[i] == 0:
             ligne_1[i] = verticale2
@@ -197,7 +186,7 @@ def afficher_le_plateau_de_jeu(etat_j1, etat_j2):
         if etat_j2[i] == 6:
             ligne_17[i] = verticale2
         else:
-            ligne_17[i] = verticale3     
+            ligne_17[i] = verticale3   
     print('       . | . : | : : | : : | : . | .     ')
     print('         '+ ligne_1[0] +'   . '+ ligne_1[1] +' .   '+ ligne_1[2] +'   . '+ ligne_1[3] +' .   '+ ligne_1[4] +'       ')
     print('  ...    '+ ligne_2[0] +'     '+ ligne_2[1] +'     '+ ligne_2[2] +'     '+ ligne_2[3] +'     '+ ligne_2[4] +'      .')

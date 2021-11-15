@@ -15,7 +15,6 @@ if __name__ == '__main__':
         joueur_2 = DEBUTER[2][1]['nom']
         prochain_joueur = joueur_1
         etat_finale = [12, 12, 12, 12, 12]
-
         while etat_j1 != etat_finale and etat_j2 != etat_finale:
             squadro.afficher_le_plateau_de_jeu(etat_j1, etat_j2)
             print(prochain_joueur + '! Merci de spécifier votre coup. choisissez parmi 1, 2, 3, 4, 5:')

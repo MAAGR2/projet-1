@@ -5,7 +5,6 @@ URL = 'http://www.ulaval.ca/api/'
 URL2 = 'http://www.ulaval.ca/api/partie'
 URL3 = 'http://www.ulaval.ca/api/jouer'
 
-
 def lister_les_parties(iduls):
     rep = httpx.get(f'{URL}parties/', params={'iduls': iduls})
     if rep.status_code == 200:
@@ -20,7 +19,6 @@ def lister_les_parties(iduls):
         return(liste_parties)
     else:
         print(f"Le GET sur '{URL}parties/' a produit le code d'erreur {rep.status_code}.")
-
 
 def récupérer_une_partie(id_partie):
     rep = httpx.get(URL2)
@@ -39,7 +37,6 @@ def récupérer_une_partie(id_partie):
         return partie
     else:
         print(f"Le GET sur '{URL2}' a produit le code d'erreur {rep.status_code}.")
-
 
 def créer_une_partie(iduls):
     id = "2021"
