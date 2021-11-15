@@ -34,7 +34,7 @@ def récupérer_une_partie(id_partie):
                 prochain_joueur = rep['partie'][i]['prochain_joueur']
                 état = rep['partie'][i]['état']
                 if rep['partie'][i]['gagnant'] != None:
-                    gagnant = rep['partie'][i]['gagnant']      
+                    gagnant = rep['partie'][i]['gagnant']
         partie = (id_partie, prochain_joueur, état, gagnant)
         return partie
     else:
@@ -57,7 +57,7 @@ def créer_une_partie(iduls):
                 prochain_joueur = rep['partie'][i]['prochain_joueur']
                 état = rep['partie'][i]['état']
                 if rep['partie'][i]['gagnant'] != None:
-                    gagnant = rep['partie'][i]['gagnant']       
+                    gagnant = rep['partie'][i]['gagnant']   
         partie = (id, prochain_joueur, état, gagnant)
         return partie
     else:
