@@ -1,3 +1,20 @@
+import argparse
+import random
+import httpx
+URL = 'http://localhost:4002/api/parties'
+
+def analyser_la_ligne_de_commande():
+    '''Analyseur de commande.'''
+    parser = argparse.ArgumentParser(description = 'Squadro - Phase 3')
+    parser.add_argument("IDUL", nargs='+', help = "IDUL du ou des joueur(s)")
+    parser.add_argument("-a", '--automatique', action='store_true',
+                        help = "Activer le mode automatique.")
+    parser.add_argument("-l", '--local', action='store_true',
+                        help="Jouer localement.")
+    parser.add_argument("-p", '--parties', action='store_true',
+                        help = "Lister les 20 dernières parties.")
+    return parser.parse_args()
+
 def afficher_le_plateau_de_jeu(etat_de_jeu):
     print('légende:')
     print('□',etat_de_jeu[0].get("nom"))
