@@ -1,6 +1,4 @@
 import argparse
-import random
-import httpx
 URL = 'http://localhost:4002/api/parties'
 
 def analyser_la_ligne_de_commande():

@@ -27,7 +27,7 @@ def créer_une_partie(liste_iduls):
         return tup
     elif rep.status_code == 406:
         raise RuntimeError(rep.json()['message'])
-       
+      
 def jouer_un_coup(id_partie, idul, pion):
     rep = httpx.put(URL+'jouer', json= {'id' : id_partie, 'idul':idul, 'pion' : pion})
     if rep.status_code == 200:
@@ -39,6 +39,6 @@ def jouer_un_coup(id_partie, idul, pion):
              return tup     
     elif rep.status_code == 406:
         raise RuntimeError(rep.json()['message'])
-print(créer_une_partie(['amine','firas']))
-print(jouer_un_coup(créer_une_partie(['amine','firas'])[0], 'amine',3))
-print(récupérer_une_partie(jouer_un_coup(créer_une_partie(['amine','firas'])[0], 'amine',3)[0]))
+print(créer_une_partie(['maagr2','meagr']))
+print(jouer_un_coup(créer_une_partie(['maagr2','meagr'])[0], 'maagr2',3))
+print(récupérer_une_partie(jouer_un_coup(créer_une_partie(['maagr2','meagr'])[0], 'maagr2',3)[0]))
