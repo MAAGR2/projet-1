@@ -268,7 +268,7 @@ def afficher_le_plateau_de_jeu(etat_de_jeu):
     if pion_jh[4] == 6:
         plateau[15] = plateau[15][:-3] + '○ □□──'
     else :
-        plateau[15] += '───' 
+        plateau[15] += '───'
     if pion_jv[0] == 6:
         plateau[17] += '█ .   '
     else :
@@ -319,6 +319,6 @@ def formatter_les_parties(liste_parties):
                 representation.append(f'{1+e}: {dictio.get("date")}, {joueur[0]} vs {joueur[1]}')
                 representation[19] += f', gagnant: {dictio.get("gagnant")}'
             else:
-                 representation.append(f'{1+e}: {dictio.get("date")}, {joueur[0]} vs {joueur[1]}\n') 
+                 representation.append(f'{1+e}: {dictio.get("date")}, {joueur[0]} vs {joueur[1]}\n')
     return (''.join(representation)) 
 print(formatter_les_parties())
